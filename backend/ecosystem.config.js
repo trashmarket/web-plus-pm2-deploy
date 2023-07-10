@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 
 const {
   DEPLOY_USER, DEPLOY_HOST, DEPLOY_PATH, DEPLOY_REF,
@@ -7,7 +7,7 @@ const {
 module.exports = {
   apps : [{
     name   : "mesto-not-my",
-    script : "./backend/dist/app.js"
+    script : "./dist/app.js"
   }],
 
   deploy: {
@@ -18,7 +18,7 @@ module.exports = {
       repo: 'git@github.com:trashmarket/web-plus-pm2-deploy.git',
       path: DEPLOY_PATH,
       'pre-deploy-local': `scp ./.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
-      'post-deploy': 'cd backend && npm i && npm run build && cd .. && pm2 startOrRestart ecosystem.config.js --env production',
+      'post-deploy': 'cd backend && npm i && npm run build && pm2 startOrRestart ecosystem.config.js --env production',
     }
   }
 }
