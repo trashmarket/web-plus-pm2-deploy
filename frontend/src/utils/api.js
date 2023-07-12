@@ -139,6 +139,6 @@ class Api {
   }
   }
   // Замените на адрес вашего бэкенда
-  const api = new Api('http://api.ciber.shop.ru.nomoreparties.sbs');
+  const api = new Api('https://api.ciber.shop.ru.nomoreparties.sbs');
 
   export default api;
