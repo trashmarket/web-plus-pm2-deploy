@@ -14,18 +14,18 @@ const app = express();
 mongoose.connect(DB_ADDRESS);
 
 // Только для локальных тестов. Не используйте это в продакшене
-const whitelist = ['http://ciber.shop.ru.nomoreparties.sbs']
+// const whitelist = ['http://ciber.shop.ru.nomoreparties.sbs']
 
-const corsOptions: any = {
-  origin: (origin: string, callback: Function): void => {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-}
-app.use(cors(corsOptions))
+// const corsOptions: any = {
+//   origin: (origin: string, callback: Function): void => {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   }
+// }
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
